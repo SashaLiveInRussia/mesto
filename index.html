@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/page.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
 </head>
+
 <body class="body">
     <div class="page">
         <header class="header">
@@ -17,15 +18,14 @@
                 <div class="profile__info">
                     <img class="profile__avatar" src="./img/Avatar.jpg" alt="Avatar">
                     <div>
-                        <div class="profile">
+                        <div class="profile__name-and-edit">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <a class="profile__edit">
-                                <img src="./img/Edit Button.svg" alt=""></a>
+                            <a><img class="profile__edit" src="./img/Edit Button.svg" alt=""></a>
                         </div>
                         <p class="profile__sub-name">Исследователь океана</p>
                     </div>
                 </div>
-                <img class="add-button" src="./img/Add Button.svg" alt="Add button">
+                <div class="profile__add-button"></div>
             </section>
 
             <section class="elements">
@@ -39,37 +39,37 @@
 
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <div class="element__like"></div>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Домбай</h2>
+                        <div class="element__like"></div>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <div class="element__like"></div>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Домбай</h2>
+                        <div class="element__like"></div>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Карачаево-Черкессия</h2>
+                        <div class="element__like"></div>
                     </div>
                 </div>
             </section>
@@ -81,11 +81,11 @@
             <div class="popup">
                 <div class="popup__body">
                     <div class="popup__container">
-                        <a href=""><img class="close-popup" src="./img/Close Icon.svg" alt=""></a>
+                        <a href=""><img class="popup__close-popup" src="./img/Close Icon.svg" alt=""></a>
                         <h3 class="popup__title">Редактировать профиль</h3>
-                            <input type="text" placeholder="Имя" class="popup__field-name">
-                            <input type="text" placeholder="Профессия" class="popup__field-sub-name">
-                        <button type="submit" class="button__save">Сохранить</button>
+                        <input type="text" placeholder="Имя" class="popup__field-name">
+                        <input type="text" placeholder="Профессия" class="popup__field-sub-name">
+                        <button type="submit" class="popup__button-save">Сохранить</button>
                     </div>
                 </div>
             </div>

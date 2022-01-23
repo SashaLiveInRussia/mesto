@@ -1,0 +1,13 @@
+.popup__field-sub-name {
+    width: 358px;
+    height: 14px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 800px) {
+    .popup__field-sub-name {
+      width: 238px;
+    }
+  }
