@@ -31,11 +31,12 @@
             <section class="elements">
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
-                    <div class="title">
-                        <h2>Карачаевск</h2>
-                        <img src="./img/Like.svg" alt="">
+                    <div class="element__bottom">
+                        <h2 class="element__title">Карачаевск</h2>
+                        <img class="element__like" src="./img/Like.svg" alt="">
                     </div>
                 </div>
+
                 <div class="element">
                     <img src="./img/Karachaevo.jpg" alt="">
                     <div class="title">
@@ -77,14 +78,14 @@
                 &#169; 2020 Mesto Russia
             </footer>
 
-            <div class="popup popup-open">
+            <div class="popup">
                 <div class="popup__body">
                     <div class="popup__container">
                         <a href=""><img class="close-popup" src="./img/Close Icon.svg" alt=""></a>
-                        <div class="popup__title">Редактировать профиль</div>
-                            <input type="text" class="popup__field-name">
-                            <input type="text" class="popup__field-sub-name">
-                        <button></button>
+                        <h3 class="popup__title">Редактировать профиль</h3>
+                            <input type="text" placeholder="Имя" class="popup__field-name">
+                            <input type="text" placeholder="Профессия" class="popup__field-sub-name">
+                        <button class="button__save">Сохранить</button>
                     </div>
                 </div>
             </div>
