@@ -81,7 +81,7 @@
   margin: 0;
 }
 
-.popup.popup-open {
+.popup .popup-open {
   display: block;
 }
 
@@ -92,7 +92,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  opacity: 0;
   display: none;
 }
 
