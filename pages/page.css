@@ -39,7 +39,6 @@
 
 .profile__name {
   margin: 0;
-  margin-bottom: 16px;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
@@ -53,23 +52,75 @@
 }
 
 .elements {
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 17px;
 }
 
 .element {
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-//*
+.title {
+  background-color: white;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px 30px 21px;
+}
+
+.title h2 {
+  margin: 0;
+}
+
+.popup.popup-open {
+  display: block;
+}
+
 .popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: none;
+}
+
+.popup__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__container {
+  background-color: #ffffff;
+  color: #000000;
+  max-width: 430px;
+  padding: 36px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.close-popup {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.popup__title {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0px 0px 54px 0px;
 }

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./pages/page.css" />
     <title>Mesto</title>
 </head>
-
 <body class="body">
     <div class="page">
         <header class="header">
@@ -20,7 +19,8 @@
                     <div>
                         <div class="profile">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <img src="./img/Edit Button.svg" alt="">
+                            <a class="profile__edit">
+                                <img src="./img/Edit Button.svg" alt=""></a>
                         </div>
                         <p class="profile__sub-name">Исследователь океана</p>
                     </div>
@@ -33,7 +33,7 @@
                     <img src="./img/Karachaevo.jpg" alt="">
                     <div class="title">
                         <h2>Карачаевск</h2>
-                        <img src="../mesto/img/Like.svg" alt="">
+                        <img src="./img/Like.svg" alt="">
                     </div>
                 </div>
                 <div class="element">
@@ -73,21 +73,24 @@
                 </div>
             </section>
 
-            <!--div class="popup">
-                <div class="popup__body">
-                    <div class="popup__conteiner">
-                     <img class="popup__close" src="" alt="">
-                     <div class="popup__title">fdsfdsfdsf</div>
-                     
-                    </div>
-                </div>
-            </div-->
-
             <footer class="footer">
                 &#169; 2020 Mesto Russia
             </footer>
+
+            <div class="popup popup-open">
+                <div class="popup__body">
+                    <div class="popup__container">
+                        <a href=""><img class="close-popup" src="./img/Close Icon.svg" alt=""></a>
+                        <div class="popup__title">Редактировать профиль</div>
+                            <input type="text" class="popup__field-name">
+                            <input type="text" class="popup__field-sub-name">
+                        <button></button>
+                    </div>
+                </div>
+            </div>
     </div>
     </main>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
