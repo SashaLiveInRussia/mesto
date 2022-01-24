@@ -5,7 +5,6 @@ let inputNameProfile = document.querySelector('.popup__field-name');
 let inputSubNameProfile = document.querySelector('.popup__field-sub-name');
 let buttonSave = document.querySelector('.popup__button-save');
 
-
 buttonSave.addEventListener('click',  function(e) {
     e.preventDefault();
     document.querySelector('.profile__name').textContent = inputNameProfile.value;
@@ -19,9 +18,9 @@ profileEdit.addEventListener('click', function(e) {
     inputSubNameProfile.value = document.querySelector('.profile__sub-name').textContent;
 })
 
-popup.addEventListener('submit', formSubmitHandler); 
-
 popupCLose.addEventListener('click', function(e) {
     popup.classList.remove('popup__opened');
 })
+
+popup.addEventListener('submit', buttonSave(e)); 
 
