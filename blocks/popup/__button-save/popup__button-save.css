@@ -9,6 +9,7 @@
   line-height: 22px;
   text-align: center;
   padding: 14px 0px 18px 0px;
+  border: none;
 }
 
 .popup__button-save:hover {
