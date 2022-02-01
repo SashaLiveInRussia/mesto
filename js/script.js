@@ -44,7 +44,7 @@ const likeElements = document.querySelectorAll('.element__like');
 
 function likeToggle(event) {
   console.log(event);
-  event.target.classList.toggle('.element__like_active');
+  event.target.classList.toggle('element__like_active');
 }
 
 likeElements.forEach(function (like) {
