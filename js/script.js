@@ -18,6 +18,12 @@ function popupCLose(e) {
 	popup.classList.remove('popup__opened');
 }
 
+function popupCloseBackground(e) {
+	if(!e.defaultPrevented) {
+		 popupCLose();
+	}
+}
+
 function formSubmitHandler(e) {
 	e.preventDefault();
 	profilName.textContent = inputNameProfile.value;
@@ -31,7 +37,7 @@ profileEdit.addEventListener('click', popupOpen);
 
 closePopup.addEventListener('click', popupCLose);
 
-popup.addEventListener('submit', formSubmitHandler); 
+popup.addEventListener('click', popupCloseBackground); 
 
 
 
