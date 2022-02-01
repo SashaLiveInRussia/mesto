@@ -40,8 +40,6 @@ closePopup.addEventListener('click', popupCLose);
 
 popup.addEventListener('click', popupCloseBackground); 
 
-like.addEventListener('click', )
-
 const likeElements = document.querySelectorAll('.element__like');
 
 function likeToggle(event) {
