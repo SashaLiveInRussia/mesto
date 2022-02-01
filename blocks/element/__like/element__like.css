@@ -16,3 +16,9 @@
   background-image: url(../../../img/Like_active.svg);
   opacity: 1;
 }
+
+.element__like_active {
+  transition: 0.3s ease;
+  background-image: url(../../../img/Like_active.svg);
+  opacity: 1;
+}

@@ -4,7 +4,8 @@ let closePopup = document.querySelector('.popup__close-popup');
 let inputNameProfile = document.querySelector('.popup__field_edit-name');
 let inputSubNameProfile = document.querySelector('.popup__field_edit-prof');
 let profilName = document.querySelector('.profile__name');
-let profilSubName = document.querySelector('.profile__sub-name')
+let profilSubName = document.querySelector('.profile__sub-name');
+let like = document.querySelector('.element__like');
 
 let buttonSave = document.querySelector('.popup__button-save');
 
@@ -39,5 +40,15 @@ closePopup.addEventListener('click', popupCLose);
 
 popup.addEventListener('click', popupCloseBackground); 
 
+like.addEventListener('click', )
 
+const likeElements = document.querySelectorAll('.element__like');
 
+function likeToggle(event) {
+  console.log(event);
+  event.target.classList.toggle('.element__like_active');
+}
+
+likeElements.forEach(function (like) {
+  like.addEventListener('click', likeToggle)
+});
