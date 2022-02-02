@@ -14,30 +14,30 @@ function popupOpen(e) {
 	popup.classList.add('popup_opened');
 	inputNameProfile.value = profilName.textContent;
 	inputSubNameProfile.value = profilSubName.textContent;
-}
+} // функция открытия попапа
 
 function popupCLose(e) {
 	popup.classList.remove('popup_opened');
-}
+} // функция закрытия попапа
 
 function formSubmitHandler(e) {
 	e.preventDefault();
 	profilName.textContent = inputNameProfile.value;
 	profilSubName.textContent = inputSubNameProfile.value;
 	popupCLose();
-}
+} // функция сохранения изменений в имени профиля
 
-formEdit.addEventListener('submit', formSubmitHandler);
+formEdit.addEventListener('submit', formSubmitHandler); // редактирование профиля
 
-profileEdit.addEventListener('click', popupOpen);
+profileEdit.addEventListener('click', popupOpen); // открытие попапа
 
-closePopup.addEventListener('click', popupCLose);
-popupBackground.addEventListener('click', popupCLose); 
+closePopup.addEventListener('click', popupCLose); // закрытие попапа
+popupBackground.addEventListener('click', popupCLose); // закрытие кликом на фон 
 
 function likeToggle(e) {
   e.target.classList.toggle('element__like_active');
-}
+} // функция переключения лайка
 
 likeElements.forEach(function (like) {
   like.addEventListener('click', likeToggle)
-});
+}); // переключение лайка при клике
