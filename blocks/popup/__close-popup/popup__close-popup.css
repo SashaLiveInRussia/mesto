@@ -2,6 +2,8 @@
   position: absolute;
   top: -40px;
   right: -40px;
+  border: none;
+  background-color: transparent;
 }
 
 .popup__close-popup:hover {

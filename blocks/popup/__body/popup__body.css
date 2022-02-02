@@ -1,6 +1,17 @@
 .popup__body {
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  max-width: 430px;
+  padding: 36px;
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px) {
+  .popup__body {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
 }
