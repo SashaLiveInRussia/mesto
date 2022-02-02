@@ -5,10 +5,10 @@
   right: -40px;
   border: none;
   background-color: transparent;
-  border: none;
   cursor: pointer;
   background-size: cover;
-  padding: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .popup__close-popup:hover {
