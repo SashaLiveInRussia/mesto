@@ -1,9 +1,3 @@
-.popup.popup__opened {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .popup {
   position: fixed;
   width: 100%;

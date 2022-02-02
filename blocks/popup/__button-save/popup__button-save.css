@@ -8,8 +8,10 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  box-sizing: border-box;
   padding: 14px 0px 18px 0px;
   border: none;
+  cursor: pointer;
 }
 
 .popup__button-save:hover {
@@ -20,5 +22,7 @@
   .popup__button-save {
     width: 238px;
     height: 46px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

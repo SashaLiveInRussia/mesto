@@ -1,6 +1,7 @@
 .profile__edit {
 	border: none;
 	background-color: transparent;
+  cursor: pointer;
 }
 
 .profile__edit:hover {

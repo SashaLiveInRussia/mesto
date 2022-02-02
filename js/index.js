@@ -11,13 +11,13 @@ let formEdit = document.querySelector('[name="edit-form"]');
 const likeElements = document.querySelectorAll('.element__like');
 
 function popupOpen(e) {
-	popup.classList.add('popup__opened');
+	popup.classList.add('popup_opened');
 	inputNameProfile.value = profilName.textContent;
 	inputSubNameProfile.value = profilSubName.textContent;
 }
 
 function popupCLose(e) {
-	popup.classList.remove('popup__opened');
+	popup.classList.remove('popup_opened');
 }
 
 function formSubmitHandler(e) {
@@ -34,8 +34,8 @@ profileEdit.addEventListener('click', popupOpen);
 closePopup.addEventListener('click', popupCLose);
 popupBackground.addEventListener('click', popupCLose); 
 
-function likeToggle(event) {
-  event.target.classList.toggle('element__like_active');
+function likeToggle(e) {
+  e.target.classList.toggle('element__like_active');
 }
 
 likeElements.forEach(function (like) {
