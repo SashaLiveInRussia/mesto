@@ -1,7 +1,14 @@
 .profile__edit {
-	border: none;
-	background-color: transparent;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+  max-width: 24px;
+  max-height: 24px;
+  background-image: url(../../../images/Edit-Button.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  padding: 0px;
 }
 
 .profile__edit:hover {
