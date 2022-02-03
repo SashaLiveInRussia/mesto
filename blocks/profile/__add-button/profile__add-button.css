@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   object-fit: cover;
   cursor: pointer;
-  background-color: transparent;
 }
 
 .profile__add-button:hover {
