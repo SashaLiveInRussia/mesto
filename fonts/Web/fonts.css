@@ -9,12 +9,12 @@
   font-family: "Inter";
   font-style: medium;
   font-weight: 500;
-  src: url(../Web/Inter-Medium.woff2);
+  src: url(./Inter-Medium.woff2);
 }
 
 @font-face {
   font-family: "Inter";
   font-style: black;
   font-weight: 900;
-  src: url(../Web/Inter-Black.woff2);
+  src: url(./Inter-Black.woff2);
 }
