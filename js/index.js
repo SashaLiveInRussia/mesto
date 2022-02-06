@@ -30,7 +30,7 @@ profileEdit.addEventListener('click', popupOpen); // открытие попап
 
 closePopup.addEventListener('click', popupCLose); // закрытие попапа
 
-function likeToggle(e) {
+/* function likeToggle(e) {
   e.target.classList.toggle('element__like_active');
 } // функция переключения лайка
 
@@ -39,7 +39,7 @@ likeElements.forEach(function (like) {
 }); // переключение лайка при клике
 
 
-/* popup.addEventListener('click', function(e) {
+ popup.addEventListener('click', function(e) {
 	if(e.target === e.currentTarget) {
 		popupCLose()
 	}
