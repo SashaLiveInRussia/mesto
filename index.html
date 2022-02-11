@@ -29,49 +29,6 @@
 			</section>
 
 			<section class="elements">
-				<div class="element">
-					<img class="element__img" src="./images/Karachaevo.jpg" alt="Карачево">
-					<div class="element__info">
-						<h2 class="element__title">Карачаевск</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
-
-				<div class="element">
-					<img class="element__img" src="./images/Elbrus.jpg" alt="Эльбрус">
-					<div class="element__info">
-						<h2 class="element__title">Гора Эльбрус</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
-				<div class="element">
-					<img class="element__img" src="./images/Dombai.jpg" alt="Домбай">
-					<div class="element__info">
-						<h2 class="element__title">Домбай</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
-				<div class="element">
-					<img class="element__img" src="./images/Elbrus.jpg" alt="Эльбрус">
-					<div class="element__info">
-						<h2 class="element__title">Гора Эльбрус</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
-				<div class="element">
-					<img class="element__img" src="./images/Dombai.jpg" alt="Домбай">
-					<div class="element__info">
-						<h2 class="element__title">Домбай</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
-				<div class="element">
-					<img class="element__img" src="./images/Karachaevo.jpg" alt="Карачаево">
-					<div class="element__info">
-						<h2 class="element__title">Карачаево-Черкессия</h2>
-						<button type="button" class="element__like"></button>
-					</div>
-				</div>
 			</section>
 		</main>
 
@@ -79,7 +36,7 @@
 			<p class="footer">&#169; 2020 Mesto Russia</p>
 		</footer>
 
-		<div class="popup">
+		<div class="popup popup_profil">
 			<div class="popup__body">
 				<button type="button" class="popup__close-popup"></button>
 				<form name="edit-form">
@@ -90,6 +47,38 @@
 				</form>
 			</div>
 		</div>
+
+		<div class="popup popup_add-image">
+			<div class="popup__body">
+				<button type="button" class="popup__close-popup"></button>
+				<form name="form-image">
+					<h2 class="popup__title">Новое место</h2>
+					<input type="text" name="name" placeholder="Название" class="popup__field popup__name-card">
+					<input type="text" name="link" placeholder="Ссылка на картинку" class="popup__field popup__link-card">
+					<button type="submit" class="popup__button-save">Создать</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="popup popup_image-view">
+			<div class="popup__image-container">
+				<img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg" alt="Image">
+				<h2 class="popup__image-title">Alex</h2>
+				<button type="button" class="popup__close-popup"></button>
+			</div>
+		</div>
+
+		<template class="template__element">
+			<div class="element">
+				<div class="element__delete"></div>
+				<img class="element__img" src="./images/Karachaevo.jpg" alt="Карачево">
+				<div class="element__info">
+					<h2 class="element__title">Карачаевск</h2>
+					<button type="button" class="element__like"></button>
+				</div>
+			</div>
+		</template>
+
 	</div>
 	<script src="./js/index.js"></script>
 </body>
