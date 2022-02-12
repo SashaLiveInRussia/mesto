@@ -27,7 +27,7 @@ const initialCards = [
 
 const popupEdit = document.querySelector('.popup_profil');
 const profileEdit = document.querySelector('.profile__edit');
-const closePopup = document.querySelectorAll('.popup__close-popup');
+const closePopupBut = document.querySelectorAll('.popup__close-popup');
 const inputNameProfile = document.querySelector('[name="login"]');
 const inputSubNameProfile = document.querySelector('[name="profession"]');
 const profilName = document.querySelector('.profile__name');
@@ -54,24 +54,24 @@ function renderinitialCards() {
  renderinitialCards()
 
 // функция открытия попапа
-function popupOpen(popup) {
+function openPopup(popup) {
 	popup.classList.add('popup_opened');
 }
 
 // функция закрытия попапа
-function popupCLose(popup) {
+function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 }
 
 // кнопки закрытия попапа
-closePopup.forEach((button) => {
+closePopupBut.forEach((button) => {
 	const popup = button.closest('.popup');
-	button.addEventListener('click', () => popupCLose(popup))
+	button.addEventListener('click', () => closePopup(popup))
  })
 
 // открытие попапа добавления карточки
  butttonAddImage.addEventListener('click', function() {
-	popupOpen(popupAdd)
+	openPopup(popupAdd)
  })
 
 // функция создания карточки 
@@ -83,7 +83,7 @@ function addCard(dataImage) {
 	createImage.src = dataImage.link;
 	createImage.alt = dataImage.name;
 	createTitle.textContent = dataImage.name;
-	addCardEvent(cardElement)
+	addCardEvent(cardElement, dataImage);
 	return cardElement
  }
 
@@ -105,9 +105,8 @@ function saveAddCard(e) {
 	  link: popupCardLink.value
 	}
 	addCardPrepend(cardInfo);
-	popupCLose(popupAdd);
-	popupCardName.value = ''
-	popupCardLink.value = ''
+	closePopup(popupAdd);
+	popupFormImage.reset()
 }
 
 // кнопка сохранения карточки
@@ -119,19 +118,18 @@ function deleteCard(e) {
 }
 
 // обработчики событий для карточки
-function addCardEvent(cardElement) {
+function addCardEvent(cardElement, dataImage) {
 	cardElement.querySelector('.element__like').addEventListener('click', likeToggle);
-	cardElement.querySelector('.element__img').addEventListener('click', openImage);
+	cardElement.querySelector('.element__img').addEventListener('click', () => openImage(dataImage));
 	cardElement.querySelector('.element__delete').addEventListener('click', deleteCard);
 }
 
-
 //функция открытия фото в большом размере
-function openImage(e) {
-	popupImage.src = e.target.src
-	popupImage.alt = e.target.alt
-	popupImageTitle.textContent = e.target.alt
-	popupOpen(popupImageView)
+function openImage(dataImage) {
+	popupImage.src = dataImage.link
+	popupImage.alt = dataImage.name
+	popupImageTitle.textContent = dataImage.name
+	openPopup(popupImageView)
 }
 
 
@@ -142,19 +140,19 @@ function likeToggle(e) {
 
 
 // функция сохранения изменений в имени профиля
-function formSubmitHandler(e) {
+function saveNameProfil(e) {
 	e.preventDefault();
 	profilName.textContent = inputNameProfile.value;
 	profilSubName.textContent = inputSubNameProfile.value;
-	popupCLose();
+	closePopup(popupEdit);
 }
 
 // редактирование профиля
-formEdit.addEventListener('submit', formSubmitHandler);
+formEdit.addEventListener('submit', saveNameProfil);
 
 // открытие попапа редактирования профиля 
 profileEdit.addEventListener('click', function () {
 	inputNameProfile.value = profilName.textContent;
 	inputSubNameProfile.value = profilSubName.textContent;
-	popupOpen(popupEdit)
+	openPopup(popupEdit)
 });
