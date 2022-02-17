@@ -48,7 +48,7 @@ const template = document.querySelector('.template__element');
 const cards = document.querySelector('.elements');
 
 // функция демонстрации сообщения об ошибке 
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (object, formElement, inputElement, errorMessage) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 	inputElement.classList.add(object.inputErrorClass);
 	errorElement.textContent = errorMessage;
