@@ -41,9 +41,9 @@
 				<button type="button" class="popup__close-popup"></button>
 				<form class="form" name="edit-form" novalidate>
 					<h2 class="popup__title">Редактировать профиль</h2>
-					<input type="text" name="login" placeholder="Имя" id="name-input" class="popup__field">
+					<input type="text" name="login" placeholder="Имя" id="name-input" class="popup__field" minlength="2" maxlength="30" required>
 					<span class="popup__input-error name-input-error"></span>
-					<input type="text" name="profession" placeholder="Профессия" id="profession-input" class="popup__field">
+					<input type="text" name="profession" placeholder="Профессия" id="profession-input" class="popup__field" minlength="2" maxlength="30" required>
 					<span class="popup__input-error profession-input-error"></span>
 					<button type="submit" class="popup__button-save">Сохранить</button>
 				</form>
@@ -55,9 +55,9 @@
 				<button type="button" class="popup__close-popup"></button>
 				<form class="form" name="form-image" novalidate>
 					<h2 class="popup__title">Новое место</h2>
-					<input type="text" name="name" placeholder="Название" id="place-input" class="popup__field popup__name-card">
+					<input type="text" name="name" placeholder="Название" id="place-input" class="popup__field popup__name-card" minlength="2" maxlength="30" required>
 					<span class="popup__input-error place-input-error"></span>
-					<input type="text" name="link" placeholder="Ссылка на картинку" id="link-input" class="popup__field popup__link-card">
+					<input type="text" name="link" placeholder="Ссылка на картинку" id="link-input" class="popup__field popup__link-card" minlength="2" maxlength="30" required>
 					<span class="popup__input-error link-input-error"></span>
 					<button type="submit" class="popup__button-save">Создать</button>
 				</form>

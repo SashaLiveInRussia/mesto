@@ -79,8 +79,8 @@ const isValid = (object, formElement, inputElement) => {
 	toggleButtonState(object, inputList, buttonElement);
 	inputList.forEach((inputElement) => {
 	  inputElement.addEventListener('input', function () {
-		 checkInputValidity(object, formElement, inputElement);
-		 toggleButtonState(object, inputList, buttonElement);
+		isValid(object, formElement, inputElement);
+		toggleButtonState(object, inputList, buttonElement);
 	  });
 	});
  };
@@ -93,8 +93,8 @@ const enableValidation = (object) => {
 		 evt.preventDefault();
 	  });
 	}); 
-	  const fieldsetList = Array.from(document.querySelectorAll(object.sectionSelector));
-	  fieldsetList.forEach((fieldSet) => {
+	  // const fieldsetList = Array.from(document.querySelectorAll(object.sectionSelector));
+	  formList.forEach((fieldSet) => {
 	setEventListeners(object, fieldSet);
 	});
  };
