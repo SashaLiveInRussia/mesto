@@ -1,29 +1,29 @@
 const initialCards = [
 	{
-	  name: 'Архыз',
-	  link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+		name: 'Архыз',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
 	},
 	{
-	  name: 'Тамбовская область',
-	  link: 'https://images.unsplash.com/photo-1583004515822-8991eea039a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2235&q=80'
+		name: 'Тамбовская область',
+		link: 'https://images.unsplash.com/photo-1583004515822-8991eea039a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2235&q=80'
 	},
 	{
-	  name: 'Иваново',
-	  link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+		name: 'Иваново',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
 	},
 	{
-	  name: 'Камчатка',
-	  link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+		name: 'Камчатка',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
 	},
 	{
-	  name: 'Холмогорский район',
-	  link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+		name: 'Холмогорский район',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
 	},
 	{
-	  name: 'Байкал',
-	  link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+		name: 'Байкал',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
 	}
- ];
+];
 
 const popupEdit = document.querySelector('.popup_profil');
 const profileEdit = document.querySelector('.profile__edit');
@@ -51,50 +51,54 @@ const popups = document.querySelectorAll('.popup');
 // функция закрытия по ESC
 function closeESC(evt,) {
 	if (evt.key === 'Escape') {
-	  const popup = document.querySelector('.popup_opened');
-	  closePopup(popup);
+		const popup = document.querySelector('.popup_opened');
+		closePopup(popup);
 	};
-  };
+};
 
- // Функция закрытия попапа по оверлею
- function closePopupBack(evt) {
+// Функция закрытия попапа по оверлею
+function closePopupBack(evt) {
 	if (evt.target === evt.currentTarget) {
-	  closePopup(evt.target);
+		closePopup(evt.target);
 	};
- };
+};
 
- popups.forEach(popup => {
+popups.forEach(popup => {
 	popup.addEventListener('mousedown', closePopupBack)
- });
+});
 
 // инициализируем фото
 function renderInitialCards() {
 	initialCards.forEach(addCardAppend);
- }
- renderInitialCards()
+}
+renderInitialCards()
 
 // функция открытия попапа
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
+	const formElement = popup.querySelector('.form');
+	if (formElement) {
+	  validateButton(formElement);
+	}
 	document.addEventListener('keydown', closeESC);
-  }
-  
-  // функция закрытия попапа
-  function closePopup(popup) {
+ }
+
+// функция закрытия попапа
+function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 	document.removeEventListener('keydown', closeESC);
-  }
+}
 
 // кнопки закрытия попапа
 closePopupBut.forEach((button) => {
 	const popup = button.closest('.popup');
 	button.addEventListener('click', () => closePopup(popup))
- })
+})
 
 // открытие попапа добавления карточки
- butttonAddImage.addEventListener('click', function() {
-	openPopup(popupAdd)
- })
+butttonAddImage.addEventListener('click', function () {
+	openPopup(popupAdd);
+})
 
 // функция создания карточки 
 function addCard(dataImage) {
@@ -107,7 +111,7 @@ function addCard(dataImage) {
 	createTitle.textContent = dataImage.name;
 	addCardEvent(cardElement, dataImage);
 	return cardElement
- }
+}
 
 // карточки добавляются в начало
 function addCardPrepend(card) {
@@ -118,13 +122,13 @@ function addCardPrepend(card) {
 function addCardAppend(card) {
 	cards.append(addCard(card))
 }
- 
+
 // передача названий и ссылок из формы карточкам
 function saveAddCard(e) {
 	e.preventDefault();
 	const cardInfo = {
-	  name: popupCardName.value,
-	  link: popupCardLink.value
+		name: popupCardName.value,
+		link: popupCardLink.value
 	}
 	addCardPrepend(cardInfo);
 	closePopup(popupAdd);
@@ -157,7 +161,7 @@ function openImage(dataImage) {
 
 // функция переключения лайка
 function handleLikeToggle(e) {
-  e.target.classList.toggle('element__like_active');
+	e.target.classList.toggle('element__like_active');
 }
 
 
