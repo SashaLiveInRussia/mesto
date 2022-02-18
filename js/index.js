@@ -161,7 +161,7 @@ function openPopup(popup) {
  function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 	popup.removeEventListener('click', event => closePopupBack(event, popup));
-	popup.addEventListener('keydown', event => closeESC(event, popup));
+	popup.removeEventListener('keydown', event => closeESC(event, popup));
  }
 
 // кнопки закрытия попапа
