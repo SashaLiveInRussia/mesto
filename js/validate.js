@@ -24,16 +24,16 @@ const isValid = (object, formElement, inputElement) => {
  };
  
 //функция обработчиков всех полей попапов
- const setEventListeners = (object, formElement) => {
-	const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));
-	const buttonElement = formElement.querySelector(object.submitButtonSelector);
-	toggleButtonState(object, inputList, buttonElement);
-	inputList.forEach((inputElement) => {
-	  inputElement.addEventListener('input', function () {
-		isValid(object, formElement, inputElement);
-		toggleButtonState(object, inputList, buttonElement);
-	  });
-	});
+const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));    
+    const buttonElement = formElement.querySelector(object.submitButtonSelector);
+    toggleButtonState(object, inputList, buttonElement);
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', function () {
+      isValid(object, formElement, inputElement);
+      toggleButtonState(object, inputList, buttonElement);
+      });
+    });
+  });   
  };
 
 // функция обработчиков форм попапов
@@ -41,14 +41,8 @@ const enableValidation = (object) => {
 	const formList = Array.from(document.querySelectorAll(object.formSelector));
 	formList.forEach((formElement) => {
 	  formElement.addEventListener('submit', function (evt) {
-		 evt.preventDefault();
+		evt.preventDefault();
 	  });
-	}); 
-	  // const fieldsetList = Array.from(document.querySelectorAll(object.sectionSelector));
-	  formList.forEach((fieldSet) => {
-	setEventListeners(object, fieldSet);
-	});
- };
 
  // проверка на валидность полей 
  function hasInvalidInput(inputList) {
@@ -68,13 +62,11 @@ const enableValidation = (object) => {
  }
  }
 
-
  enableValidation({
 	formSelector: '.form',
 	inputSelector: '.popup__field',
 	submitButtonSelector: '.popup__button-save',
 	inactiveButtonClass: 'popup__button-save_off',
 	inputErrorClass: 'popup__field_error',
-	errorClass: 'popup__input-error_active',
-	sectionSelector: '.popup'
+	errorClass: 'popup__input-error',
 });
