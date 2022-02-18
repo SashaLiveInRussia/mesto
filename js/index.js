@@ -46,6 +46,7 @@ const popupImageView = document.querySelector('.popup_image-view');
 
 const template = document.querySelector('.template__element');
 const cards = document.querySelector('.elements');
+const popups = document.querySelectorAll('.popup');
 
 // функция закрытия по ESC
 function closeESC(evt,) {
@@ -54,7 +55,7 @@ function closeESC(evt,) {
 	  closePopup(popup);
 	};
   };
- 
+
  // Функция закрытия попапа по оверлею
  function closePopupBack(evt) {
 	if (evt.target === evt.currentTarget) {
@@ -62,8 +63,12 @@ function closeESC(evt,) {
 	};
  };
 
+ popups.forEach(popup => {
+	popup.addEventListener('mousedown', closePopupBack)
+ });
+
 // инициализируем фото
-function renderinitialCards() {
+function renderInitialCards() {
 	initialCards.forEach(addCardAppend);
  }
  renderinitialCards()
@@ -71,14 +76,12 @@ function renderinitialCards() {
 // функция открытия попапа
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
-	popup.addEventListener('click', closePopupBack); 
 	document.addEventListener('keydown', closeESC);
   }
   
   // функция закрытия попапа
   function closePopup(popup) {
 	popup.classList.remove('popup_opened');
-	popup.removeEventListener('click', closePopupBack);
 	document.removeEventListener('keydown', closeESC);
   }
 
@@ -138,7 +141,7 @@ function deleteCard(e) {
 
 // обработчики событий для карточки
 function addCardEvent(cardElement, dataImage) {
-	cardElement.querySelector('.element__like').addEventListener('click', likeToggle);
+	cardElement.querySelector('.element__like').addEventListener('click', handleLikeToggle);
 	cardElement.querySelector('.element__img').addEventListener('click', () => openImage(dataImage));
 	cardElement.querySelector('.element__delete').addEventListener('click', deleteCard);
 }
@@ -153,7 +156,7 @@ function openImage(dataImage) {
 
 
 // функция переключения лайка
-function likeToggle(e) {
+function handleLikeToggle(e) {
   e.target.classList.toggle('element__like_active');
 }
 

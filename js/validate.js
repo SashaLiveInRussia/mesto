@@ -23,19 +23,6 @@ const isValid = (object, formElement, inputElement) => {
 	}
  };
  
-//функция обработчиков всех полей попапов
-const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));    
-    const buttonElement = formElement.querySelector(object.submitButtonSelector);
-    toggleButtonState(object, inputList, buttonElement);
-    inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', function () {
-      isValid(object, formElement, inputElement);
-      toggleButtonState(object, inputList, buttonElement);
-      });
-    });
-  });   
- };
-
 // функция обработчиков форм попапов
 const enableValidation = (object) => {
 	const formList = Array.from(document.querySelectorAll(object.formSelector));
@@ -43,6 +30,20 @@ const enableValidation = (object) => {
 	  formElement.addEventListener('submit', function (evt) {
 		evt.preventDefault();
 	  });
+ 
+	  const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));    
+	  const buttonElement = formElement.querySelector(object.submitButtonSelector);
+	  
+	  toggleButtonState(object, inputList, buttonElement);
+ 
+	  inputList.forEach((inputElement) => {
+		 inputElement.addEventListener('input', function () {
+		 isValid(object, formElement, inputElement);
+		 toggleButtonState(object, inputList, buttonElement);
+		 });
+	  });
+	});   
+  };
 
  // проверка на валидность полей 
  function hasInvalidInput(inputList) {
