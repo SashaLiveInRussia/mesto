@@ -60,7 +60,7 @@ const showInputError = (object, formElement, inputElement, errorMessage) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 	inputElement.classList.remove(object.inputErrorClass);
 	errorElement.classList.remove(object.errorClass);
-	errorElement.textContent.remove();
+	errorElement.textContent = '';
  };
 
 // функция проверки на валидность
