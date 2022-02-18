@@ -47,8 +47,8 @@ const popupImageView = document.querySelector('.popup_image-view');
 const template = document.querySelector('.template__element');
 const cards = document.querySelector('.elements');
 
-
-function closePopupESC(evt) {
+// функция закрытия по ESC
+function closeESC(evt) {
 	if (evt.key === 'Escape') {
 	  closePopup(popup);
 	};
@@ -160,6 +160,7 @@ function openPopup(popup) {
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 	document.addEventListener('click', closePopupBack);
+	document.removeEventListener('keydown', closeESC);
 }
 
 // кнопки закрытия попапа
