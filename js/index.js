@@ -71,7 +71,7 @@ function closeESC(evt,) {
 function renderInitialCards() {
 	initialCards.forEach(addCardAppend);
  }
- renderinitialCards()
+ renderInitialCards()
 
 // функция открытия попапа
 function openPopup(popup) {
