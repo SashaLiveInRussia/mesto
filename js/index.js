@@ -48,18 +48,18 @@ const template = document.querySelector('.template__element');
 const cards = document.querySelector('.elements');
 
 // функция закрытия по ESC
-function closeESC(evt) {
+function closeESC(evt, popup) {
 	if (evt.key === 'Escape') {
 	  closePopup(popup);
 	};
  };
  
  // Функция закрытия попапа по оверлею
- function closePopupBack(evt) {
+ function closePopupBack(evt, popup) {
 	if (evt.target === evt.currentTarget) {
 	  closePopup(popup);
 	};
- };
+  };
 
 // функция демонстрации сообщения об ошибке 
 const showInputError = (object, formElement, inputElement, errorMessage) => {
@@ -153,15 +153,16 @@ function renderinitialCards() {
 // функция открытия попапа
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
-	document.addEventListener('click', closePopupBack);
-}
-
-// функция закрытия попапа
-function closePopup(popup) {
+	popup.addEventListener('click', event => closePopupBack(event, popup)); 
+	popup.addEventListener('keydown', event => closeESC(event, popup));
+ }
+ 
+ // функция закрытия попапа
+ function closePopup(popup) {
 	popup.classList.remove('popup_opened');
-	document.addEventListener('click', closePopupBack);
-	document.removeEventListener('keydown', closeESC);
-}
+	popup.removeEventListener('click', event => closePopupBack(event, popup));
+	popup.addEventListener('keydown', event => closeESC(event, popup));
+ }
 
 // кнопки закрытия попапа
 closePopupBut.forEach((button) => {
