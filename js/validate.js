@@ -75,6 +75,6 @@ const enableValidation = (object) => {
 	submitButtonSelector: '.popup__button-save',
 	inactiveButtonClass: 'popup__button-save_off',
 	inputErrorClass: 'popup__field_error',
-	errorClass: 'popup__field-error_active',
+	errorClass: 'popup__input-error_active',
 	sectionSelector: '.popup'
 });
