@@ -47,6 +47,20 @@ const popupImageView = document.querySelector('.popup_image-view');
 const template = document.querySelector('.template__element');
 const cards = document.querySelector('.elements');
 
+
+function closePopupESC(evt) {
+	if (evt.key === 'Escape') {
+	  closePopup(popup);
+	};
+ };
+ 
+ // Функция закрытия попапа по оверлею
+ function closePopupBack(evt) {
+	if (evt.target === evt.currentTarget) {
+	  closePopup(popup);
+	};
+ };
+
 // функция демонстрации сообщения об ошибке 
 const showInputError = (object, formElement, inputElement, errorMessage) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -139,11 +153,13 @@ function renderinitialCards() {
 // функция открытия попапа
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
+	document.addEventListener('click', closePopupBack);
 }
 
 // функция закрытия попапа
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
+	document.addEventListener('click', closePopupBack);
 }
 
 // кнопки закрытия попапа
