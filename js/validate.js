@@ -4,7 +4,7 @@ const dataValidation = {
 	submitButtonSelector: '.popup__button-save',
 	inactiveButtonClass: 'popup__button-save_off',
 	inputErrorClass: 'popup__field_error',
-	errorClass: 'popup__input-error',
+	errorClass: 'popup__input-error_active',
 };
 
 // функция демонстрации сообщения об ошибке 
@@ -41,7 +41,6 @@ const enableValidation = (object) => {
 		});
 		const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));
 		const buttonElement = formElement.querySelector(object.submitButtonSelector);
-		toggleButtonState(object, inputList, buttonElement);
 		inputList.forEach((inputElement) => {
 			inputElement.addEventListener('input', function () {
 				isValid(object, formElement, inputElement);
