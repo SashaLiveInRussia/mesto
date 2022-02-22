@@ -8,3 +8,10 @@
   line-height: 1.21;
   visibility: hidden;
 }
+
+@media screen and (min-width: 320px) and (max-width: 800px) {
+  .popup__input-error {
+    font-size: 12px;
+    top: calc(100% + 3px);
+  }
+}
