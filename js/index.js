@@ -63,7 +63,7 @@ const cards = document.querySelector('.elements');
 const popups = document.querySelectorAll('.popup');
 
 // функция закрытия по ESC
-function closeESC(evt,) {
+function closeESC(evt) {
 	if (evt.key === 'Escape') {
 		const popup = document.querySelector('.popup_opened');
 		closePopup(popup);
@@ -84,10 +84,15 @@ popups.forEach(popup => {
 // инициализируем фото
 function renderInitialCards() {
 	initialCards.forEach(dataCard => {
-		const card = new Card(dataCard, template);
-		card.openPopup = openPopup;
-		cards.append(card.getCard());
+		cards.append(initCard(dataCard));
 	});
+}
+
+// создание карточки
+function initCard(dataCard) {
+	const card = new Card(dataCard, template);
+	card.openPopup = openPopup;
+	return card.getCard();
 }
 
 renderInitialCards()
@@ -101,9 +106,15 @@ function openPopup(popup) {
 // функция закрытия попапа
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
-	formValidatorAdd.resetForm();
-	formValidatorEdit.resetForm();
 	document.removeEventListener('keydown', closeESC);
+	if (popup.classList.contains('popup_add-image')) {
+		formValidatorAdd.form.reset();
+		formValidatorAdd.validateButton();
+	}
+	if (popup.classList.contains('popup_profil')) {
+		formValidatorEdit.form.reset();
+		formValidatorEdit.validateButton();
+	}
 }
 
 // кнопки закрытия попапа
@@ -119,9 +130,7 @@ butttonAddImage.addEventListener('click', function () {
 
 // карточки добавляются в начало
 function addCardPrepend(dataCard) {
-	const card = new Card(dataCard, template);
-	card.openPopup = openPopup;
-	cards.prepend(card.getCard())
+	cards.prepend(initCard(dataCard));
 }
 
 // передача названий и ссылок из формы карточкам
@@ -133,7 +142,8 @@ function saveAddCard(e) {
 	}
 	addCardPrepend(cardInfo);
 	closePopup(popupAdd);
-	popupFormImage.reset()
+	formValidatorAdd.form.reset();
+	formValidatorAdd.validateButton();
 }
 
 // кнопка сохранения карточки
@@ -143,9 +153,11 @@ popupFormImage.addEventListener('submit', saveAddCard);
 // функция сохранения изменений в имени профиля
 function saveNameProfil(e) {
 	e.preventDefault();
+	closePopup(popupEdit);
 	profilName.textContent = inputNameProfile.value;
 	profilSubName.textContent = inputSubNameProfile.value;
-	closePopup(popupEdit);
+	formValidatorEdit.form.reset();
+	formValidatorEdit.validateButton();
 }
 
 // редактирование профиля
@@ -153,8 +165,8 @@ formEdit.addEventListener('submit', saveNameProfil);
 
 // открытие попапа редактирования профиля 
 profileEdit.addEventListener('click', function () {
-	openPopup(popupEdit)
 	inputNameProfile.value = profilName.textContent;
 	inputSubNameProfile.value = profilSubName.textContent;
 	formValidatorEdit.validateButton();
+	openPopup(popupEdit);
 });
