@@ -79,11 +79,6 @@ class FormValidator {
         this._toggleButtonState();
     }
 
-    resetForm() {
-        this.form.reset();
-        this._toggleButtonState();
-    }
-
     validateButton() {
         this._toggleButtonState();
     }
