@@ -107,14 +107,6 @@ function openPopup(popup) {
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
 	document.removeEventListener('keydown', closeESC);
-	if (popup.classList.contains('popup_add-image')) {
-		formValidatorAdd.form.reset();
-		formValidatorAdd.validateButton();
-	}
-	if (popup.classList.contains('popup_profil')) {
-		formValidatorEdit.form.reset();
-		formValidatorEdit.validateButton();
-	}
 }
 
 // кнопки закрытия попапа
@@ -125,6 +117,8 @@ closePopupBut.forEach((button) => {
 
 // открытие попапа добавления карточки
 butttonAddImage.addEventListener('click', function () {
+	formValidatorAdd.form.reset();
+	formValidatorAdd.validateButton();
 	openPopup(popupAdd);
 })
 
@@ -165,6 +159,8 @@ formEdit.addEventListener('submit', saveNameProfil);
 
 // открытие попапа редактирования профиля 
 profileEdit.addEventListener('click', function () {
+	formValidatorEdit.form.reset();
+	formValidatorEdit.validateButton();
 	inputNameProfile.value = profilName.textContent;
 	inputSubNameProfile.value = profilSubName.textContent;
 	formValidatorEdit.validateButton();
