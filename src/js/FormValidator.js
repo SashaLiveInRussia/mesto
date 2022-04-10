@@ -9,6 +9,7 @@ class FormValidator {
         this._preventDefault = this._preventDefault.bind(this);
         this._resetForm = this._resetForm.bind(this);
         this._handleInput = this._handleInput.bind(this);
+        this.validateButton = this.validateButton.bind(this);
     }
 
     _toggleButtonState() {
@@ -35,6 +36,8 @@ class FormValidator {
         this.inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         });
+
+        this.validateButton();
     }
 
     _setEventListener() {

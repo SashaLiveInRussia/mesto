@@ -1,17 +1,12 @@
 class Card {
-	constructor(data, templateSelector) {
+	constructor({data, handleCardClick}, templateSelector) {
 		this.data = data;
 		this.templateSelector = templateSelector;
-
-		this.popupImage = document.querySelector('.popup__image');
-		this.popupImageTitle = document.querySelector('.popup__image-title');
-		this.popupImageView = document.querySelector('.popup_image-view');
 
 		this._likeToggle = this._likeToggle.bind(this);
 		this._openImage = this._openImage.bind(this);
 		this._deleteCard = this._deleteCard.bind(this);
-
-		
+		this._handleCardClick = handleCardClick;
 	}
 
 	_initCard() {
@@ -35,11 +30,7 @@ class Card {
 	}
 
 	_openImage() {
-		this.popupImage.src = this.data.link
-		this.popupImage.alt = this.data.name
-		this.popupImageTitle.textContent = this.data.name
-
-		this.openPopup(this.popupImageView)
+		this._handleCardClick(this.data);
 	}
 
 	_deleteCard() {
