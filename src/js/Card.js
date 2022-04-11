@@ -1,7 +1,7 @@
 class Card {
 	constructor({data, handleCardClick}, templateSelector) {
 		this.data = data;
-		this.templateSelector = templateSelector;
+		this.template = document.querySelector(templateSelector);
 
 		this._likeToggle = this._likeToggle.bind(this);
 		this._openImage = this._openImage.bind(this);
@@ -10,7 +10,7 @@ class Card {
 	}
 
 	_initCard() {
-		this.cardElement = this.templateSelector.content.cloneNode(true).querySelector('.element');
+		this.cardElement = this.template.content.cloneNode(true).querySelector('.element');
 		const cardImage = this.cardElement.querySelector('.element__img');
 		const cardTitle = this.cardElement.querySelector('.element__title');
 

@@ -5,11 +5,11 @@ export default class Popup {
 
         this._handleEscClose = this._handleEscClose.bind(this);
         this._closePopupBack = this._closePopupBack.bind(this);
+        // Привязка используется на 37 строчке
         this.close = this.close.bind(this);
     }
 
     open() {
-        console.log(123)
         this._popup.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
     }
@@ -32,6 +32,7 @@ export default class Popup {
     }
 
     setEventListeners() {
+        // Без привязки придется использовать стрелочную функцию, что по сути создает ту же функцию в памяти
         this._buttonCLose.addEventListener('click', this.close)
         this._popup.addEventListener('mousedown', this._closePopupBack)
     }

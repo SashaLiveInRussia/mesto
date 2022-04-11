@@ -5,6 +5,7 @@ import PopupWithImage from './PopupWithImage.js';
 import UserInfo from './UserInfo.js';
 
 import '../pages/index.css';
+import Section from './Section.js';
 
 const initialCards = [
 	{
@@ -53,24 +54,25 @@ formValidatorEdit.enableValidation();
 const formValidatorAdd = new FormValidator(dataValidation, document.querySelector('form[name="form-image"]'));
 formValidatorAdd.enableValidation();
 
-const template = document.querySelector('.template__element');
-const cards = document.querySelector('.elements');
-
 const popupImage = new PopupWithImage('.popup_image-view');
 const popupAddCard = new PopupWithForm('.popup_add-image', saveAddCard);
 const popupEdit = new PopupWithForm('.popup_profil', saveNameProfile);
 const userInfo = new UserInfo({selectorName: '.profile__name', selectorInfo: '.profile__sub-name'});
 
+// карточки добавляются в начало
+function addCard(item) {
+	const card = initCard(item);
+	cardList.addItem(card);
+}
+
+const cardList = new Section({
+	items: initCard,
+	renderer: addCard
+}, '.elements');
+
 popupImage.setEventListeners();
 popupAddCard.setEventListeners();
 popupEdit.setEventListeners();
-
-// инициализируем фото
-function renderInitialCards() {
-	initialCards.forEach(dataCard => {
-		cards.append(initCard(dataCard));
-	});
-}
 
 // создание карточки
 function initCard(dataCard) {
@@ -79,25 +81,20 @@ function initCard(dataCard) {
 		handleCardClick: (data) => {
 			popupImage.open(data);
 		}
-	}, template);
+	}, '.template__element');
 	return card.getCard();
 }
 
-renderInitialCards()
+cardList.renderItems()
 
 // открытие попапа добавления карточки
 butttonAddImage.addEventListener('click', function () {
 	popupAddCard.open();
 })
 
-// карточки добавляются в начало
-function addCardPrepend(dataCard) {
-	cards.prepend(initCard(dataCard));
-}
-
 // передача названий и ссылок из формы карточкам
 function saveAddCard(data) {
-	addCardPrepend(data);
+	addCard(data);
 	popupAddCard.close();
 }
 
