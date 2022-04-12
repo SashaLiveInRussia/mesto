@@ -5,7 +5,7 @@ const path = require('path'); // подключаем path к конфигу в�
 
 module.exports = {
     entry: {
-        main: './src/js/index.js'
+        main: './src/pages/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
