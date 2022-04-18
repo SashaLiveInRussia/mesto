@@ -4,7 +4,7 @@
   "description": "Проект нацелен на то, чтоб посетитель смог создать собственную галерею из достопримечательностей где он был или хотел побывать.",
   "main": "index.js",
   "scripts": {
-    "build": "rd /s /q dist && webpack",
+    "build": "rm -rf dist && webpack --mode production",
     "dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
