@@ -12,6 +12,11 @@ class Card {
 		this._handleLikeClick = handleLikeClick;
 	}
 
+	remove() {
+		this.cardElement.remove();
+		this.cardElement = null;
+	}
+
 	getCard() {
 		this._initCard();
 		this._likeButton = this.cardElement.querySelector('.element__like');

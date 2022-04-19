@@ -74,7 +74,7 @@ function initCards() {
 	api.getInitialCards()
 		.then(cards => {
 			cardList = new Section({
-				items: cards,
+				items: cards.reverse(),
 				renderer: addCard
 			}, '.elements');
 
@@ -97,6 +97,9 @@ popupEdit.setEventListeners();
 popupQuestion.setEventListeners();
 popupAvatar.setEventListeners();
 
+
+let cardDeleteConfirm;
+
 // создание карточки
 function initCard(dataCard) {
 	const card = new Card({
@@ -107,7 +110,7 @@ function initCard(dataCard) {
 			popupImage.open(data);
 		},
 		handleDeleteClick: (data) => {
-			inputCardId.value = data._id;
+			cardDeleteConfirm = data;
 			popupQuestion.open();
 		},
 		handleLikeClick: (data, isLiked) => {
@@ -130,6 +133,7 @@ function initCard(dataCard) {
 // открытие попапа добавления карточки
 butttonAddImage.addEventListener('click', function () {
 	popupAddCard.open();
+	formValidatorAdd.validateButton();
 })
 
 // передача названий и ссылок из формы карточкам
@@ -138,13 +142,14 @@ function saveAddCard(data) {
 
 	api.addCard(data)
 		.then(cardApi => {
-			formValidatorAdd.setTextButton(formValidatorAdd.buttonElementText);
 			addCard(cardApi);
 			popupAddCard.close();
 		})
 		.catch(error => {
-			formValidatorAdd.setTextButton(formValidatorAdd.buttonElementText);
 			console.error(error);
+		})
+		.finally(() => {
+			formValidatorAdd.setTextButton(formValidatorAdd.buttonElementText);
 		})
 }
 
@@ -154,13 +159,14 @@ function saveNameProfile(data) {
 
 	api.editProfile(data)
 		.then(userInfoApi => {
-			formValidatorEdit.setTextButton(formValidatorEdit.buttonElementText);
 			userInfo.setUserInfo(userInfoApi);
 			popupEdit.close();
 		})
 		.catch(error => {
-			formValidatorEdit.setTextButton(formValidatorEdit.buttonElementText);
 			console.error(error);
+		})
+		.finally(() => {
+			formValidatorEdit.setTextButton(formValidatorEdit.buttonElementText);
 		})
 }
 
@@ -182,7 +188,8 @@ function confirmDelete({ _id }) {
 	api.deleteCard(_id)
 		.then(() => {
 			popupQuestion.close();
-			document.querySelector(`[data-id="${_id}"]`).remove();
+			cardDeleteConfirm.remove();
+			cardDeleteConfirm = null;
 		})
 		.catch(error => {
 			console.error(error);
@@ -193,7 +200,7 @@ function avatarChange(data) {
 	formValidatorAvatar.setTextButton('Сохранение...');
 
 	api.changeAvatar(data)
-		.then(userInfoApi => {			
+		.then(userInfoApi => {
 			formValidatorAvatar.setTextButton(formValidatorAvatar.buttonElementText);
 			userInfo.setUserInfo(userInfoApi);
 			popupAvatar.close();
