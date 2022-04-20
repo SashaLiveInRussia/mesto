@@ -185,7 +185,6 @@ butttonEditAvatar.addEventListener('click', function () {
 });
 
 function confirmDelete() {
-	console.log(cardDeleteConfirm);
 	api.deleteCard(cardDeleteConfirm.data._id)
 		.then(() => {
 			popupQuestion.close();
