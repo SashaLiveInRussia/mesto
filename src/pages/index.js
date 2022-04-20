@@ -110,7 +110,7 @@ function initCard(dataCard) {
 			popupImage.open(data);
 		},
 		handleDeleteClick: (data) => {
-			cardDeleteConfirm = data;
+			cardDeleteConfirm = card;
 			popupQuestion.open();
 		},
 		handleLikeClick: (data, isLiked) => {
@@ -184,8 +184,9 @@ butttonEditAvatar.addEventListener('click', function () {
 	popupAvatar.open();
 });
 
-function confirmDelete({ _id }) {
-	api.deleteCard(_id)
+function confirmDelete() {
+	console.log(cardDeleteConfirm);
+	api.deleteCard(cardDeleteConfirm.data._id)
 		.then(() => {
 			popupQuestion.close();
 			cardDeleteConfirm.remove();
