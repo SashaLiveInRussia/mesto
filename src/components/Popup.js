@@ -32,7 +32,6 @@ export default class Popup {
     }
 
     setEventListeners() {
-        // Без привязки придется использовать стрелочную функцию, что по сути создает ту же функцию в памяти
         this._buttonCLose.addEventListener('click', this.close)
         this._popup.addEventListener('mousedown', this._closePopupBack)
     }
